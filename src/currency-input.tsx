@@ -27,6 +27,8 @@ export default function CurrencyInput({
   control,
   isDouble = false,
   initialValue = 0,
+  placeholder,
+  ...props
 }: CurrencyInputProps): JSX.Element {
   const { field } = useController({
     name,
@@ -71,10 +73,11 @@ export default function CurrencyInput({
 
   return (
     <input
+      {...props}
       {...field}
+      placeholder={placeholder}
       value={formattedValue}
       name={name}
-      placeholder="R$ 0,00"
       onChange={(e) => {
         formatValue(e.target.value);
       }}
