@@ -62,13 +62,13 @@ export default function CurrencyInput({
   React.useEffect(() => {
     if (initialValue === 0) return;
 
-    formatValue(isDouble ? initialValue * 100 : initialValue);
+    formatValue(isDouble ? Math.round(initialValue * 100) : initialValue);
   }, [initialValue]);
 
   React.useEffect(() => {
     if (field.value === 0) return;
 
-    formatValue(isDouble ? field.value * 100 : field.value);
+    formatValue(isDouble ? Math.round(field.value * 100) : field.value);
   }, [field.value]);
 
   return (
